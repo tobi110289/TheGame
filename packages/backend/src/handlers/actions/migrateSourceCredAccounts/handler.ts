@@ -2,7 +2,7 @@ import { isNotNullOrUndefined } from '@metafam/utils';
 import bluebird from 'bluebird';
 import { Request, Response } from 'express';
 import fetch from 'node-fetch';
-import api from 'sourcecred';
+import { sourcecred as sc } from 'sourcecred';
 
 import {
   AccountType_Enum,
@@ -30,7 +30,7 @@ const VALID_ACCOUNT_TYPES: Array<AccountType_Enum> = [
 
 const parseMergedIdentityId = (alias: SCAlias) => {
   try {
-    const addressParts = api.core.graph.NodeAddress.toParts(alias.address);
+    const addressParts = sc.core.graph.NodeAddress.toParts(alias.address);
 
     if (
       addressParts[1].toUpperCase() === 'CORE' &&
@@ -50,7 +50,7 @@ const parseMergedIdentityId = (alias: SCAlias) => {
 
 const parseAlias = (alias: SCAlias) => {
   try {
-    const addressParts = api.core.graph.NodeAddress.toParts(alias.address);
+    const addressParts = sc.core.graph.NodeAddress.toParts(alias.address);
     const type = addressParts[1]?.toUpperCase() as AccountType_Enum;
 
     if (VALID_ACCOUNT_TYPES.indexOf(type) < 0) {

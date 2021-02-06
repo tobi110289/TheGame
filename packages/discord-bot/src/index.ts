@@ -16,4 +16,4 @@ async function start() {
   await client.login(CONFIG.discordBotToken);
 }
 
-start();
+start().then(() => console.log('Ready 🐙'));
