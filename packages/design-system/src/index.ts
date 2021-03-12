@@ -23,6 +23,8 @@ export {
   Input,
   Link,
   List,
+  ListIcon,
+  ListItem,
   Select,
   SimpleGrid,
   Skeleton,
